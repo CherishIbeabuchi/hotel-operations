@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import javax.print.DocFlavor;
+import java.time.LocalTime;
 
 public class HotelOperations {
     public static final String BRIGHT_BLACK = "\u001B[90m";
@@ -15,7 +16,8 @@ public class HotelOperations {
 
     public static void main(String[] args) {
         // ROOM TEST
-        Room room1 = new Room(true, false, 2, false, 150.00);
+        Room room1 = new Room(true, 3, false, 150.00);
+
 
         System.out.println(BRIGHT_WHITE + """
                         \n██████████████████████████████████████████████
@@ -35,37 +37,41 @@ public class HotelOperations {
 
         // RESERVATION TEST
         Reservations reservation1 =
-                new Reservations( 3, "king", true);
+                new Reservations( "king", 3, true);
 
-        System.out.println("----- RESERVATION -----");
-        System.out.println("Room Type: " +
-                reservation1.getRoomType());
-        System.out.println("Nights: " +
-                reservation1.getNumberOfNights());
-        System.out.println("Weekend: " +
-                reservation1.isWeekend());
-        System.out.println("Price Per Night: $" +
-                reservation1.getPrice());
-        System.out.println("Reservation Total: $" +
-                reservation1.getReservationTotal());
+        System.out.println(BRIGHT_BLUE + """
+                \n██████████████████████████████████████████████
+                                 RESERVATION
+                ██████████████████████████████████████████████""" + RESET);
+        System.out.println();
+
+        System.out.println("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
+        System.out.println("Room Type: " + reservation1.getRoomType());
+        System.out.println("Nights: " + reservation1.getNumberOfNights());
+        System.out.println("Weekend: " + reservation1.isWeekend());
+        System.out.println("Price Per Night: $" + reservation1.getPrice());
+        System.out.println("Reservation Total: $" + reservation1.getReservationTotal());
+        System.out.println("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
 
         System.out.println();
 
         // EMPLOYEE TEST
         Employee employee1 =
-                new Employee("Front Desk",
-                        105,
-                        20.00,
-                        "Cherish",
-                        34);
+                new Employee("Front Desk", 105, 20.00, "Cherish", 34);
 
-        System.out.println("----- EMPLOYEE -----");
-        System.out.println("Regular Hours: " +
-                employee1.getRegularHours());
-        System.out.println("Overtime Hours: " +
-                employee1.getOvertimeHours());
-        System.out.println("Total Pay: $" +
-                employee1.getTotalPay());
+        System.out.println(BRIGHT_CYAN + """ 
+                   ██████████████████████████████████████████████
+                   
+                   """ + BRIGHT_YELLOW + """
+                               ➤  E  MP LOY  EE ➤
+                   """ + BRIGHT_CYAN + """
+                   
+                   ██████████████████████████████████████████████
+                                     """ + RESET);
+
+        System.out.println("Regular Hours: " + employee1.getRegularHours());
+        System.out.println("Overtime Hours: " + employee1.getOvertimeHours());
+        System.out.println("Total Pay: $" + employee1.getTotalPay());
     }
 }
 
